@@ -7,11 +7,15 @@
 		<link rel="stylesheet" href="paint.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-		<title>Domínio Público</title>
+		<title>Novos Hieroglifos</title>
+		<link rel="icon" type="image" href="assets/images/icons/world.png">
 	</head>
 
 	<body>
-		<section class="container">
+		<section id="container">
+			<h2 id="localMural">Escritório da Vale, Rio de Janeiro.</h2>
+			<span id="contador"></span><br>
+			
 			<canvas width="1024" height="686" id="canvas"></canvas>
 
 			<div>
@@ -39,16 +43,11 @@
 						<span class="cor" style="--set-color:#c8bfe7"></span>
 					</div>
 					
-						<input type="color" id="color-picker" class="botao color-btn">
+						
+					<input type="color" id="color-picker" class="botao color-btn">
 					
 					<button class="botao brush" onclick="corAtual()" id="select">
-						<span class="material-symbols-outlined">brush</span>
-					</button>
-					<button class="botao tamanho" style="--set-size:05px" onclick="espessura()">
-						<span>5px</span>
-					</button>
-					<button class="botao tamanho" style="--set-size:08px" onclick="espessura()">
-						<span>8px</span>
+						<span><img src="assets/images/icons/paint.png"></span>
 					</button>
 					<button class="botao tamanho" style="--set-size:10px" onclick="espessura()">
 						<span>10px</span>
@@ -59,14 +58,23 @@
 					<button class="botao tamanho" style="--set-size:20px" onclick="espessura()">
 						<span>20px</span>
 					</button>
+					<button class="botao tamanho" style="--set-size:30px" onclick="espessura()">
+						<span>30px</span>
+					</button>
+					<button class="botao tamanho" style="--set-size:40px" onclick="espessura()">
+						<span>40px</span>
+					</button>
 					<button class="botao borracha" onclick="apagar()">
-						<span class="material-symbols-outlined">ink_eraser</span>
+						<span><img src="assets/images/icons/borracha.png"></span>
 					</button>
 					<button class="botao limpar">
-						<span class="material-symbols-outlined limpar">delete</span>
+						<span><img src="assets/images/icons/lixo.png"></span>
 					</button>
-					<button class="botao" onclick="salvar()">
+					<!--<button class="botao" onclick="salvar()">
 						<span class="material-symbols-outlined">download</span>
+					</button> -->
+					<button class="botao mural" onclick="mudarMural()">
+						<span><img src="assets/images/icons/calendar.png"></span>
 					</button>
 				</section>
 			</div>
@@ -82,22 +90,22 @@
 			<ul>
 				<li>
 					<a href="https://www.ufes.br/" target="_blank">
-						<img src="assets/images/ufes.png" class="ufes">
+						<img src="assets/images/icons/ufes.png" class="ufes">
 					</a>
 				</li>
 				<li>
 					<a href="https://comunicacaosocial.ufes.br/pt-br/apresentacao" target="_blank">
-						Comunicação Social: Cinema e Audiovisual
+						<img src="assets/images/icons/camera.png"><br>Comunicação Social:Cinema e Audiovisual
 					</a>
 				</li>
 				<li>
 					<a href="https://github.com/kleydsongc/novosHieroglifos" target="_blank">
-						<img src="assets/images/github.png">@kleydsongc
+						<img src="assets/images/icons/github.png"><br>@kleydsongc
 					</a>
 				</li>
 				<li>
 					<a href="https://kleydsongc.github.io/" target="_blank">
-						<img src="assets/images/folder.png"> Portfólio
+						<img src="assets/images/icons/briefcase.png"><br>Portfólio
 					</a>
 				</li>
 			</ul>	

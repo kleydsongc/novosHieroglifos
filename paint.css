@@ -1,9 +1,14 @@
+:root {
+	--mural: url(assets/images/valerio.jpg);
+}
+
 body {
 	background-color: rgb(224, 205, 184);
 }
 
 canvas {
-	background-image: url(vix.jpg);
+	background-image: var(--mural);
+	background-size: cover;
 	touch-action: none;
 }
 
@@ -12,20 +17,51 @@ canvas {
 	right: 0;
 	bottom: 0;
 	z-index: -1;
+	min-width: 100%;
+	min-height: 100%;
 }
 
-.container {
-	width: 100%;
+section {
+	background-color: rgba(0, 129, 129, 0.7);
+}
+
+#container {
+	width: 57%;
 	min-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
+	font-family: "Courier New", monospace;
+	color: white;
+	border: 5px solid #C0C0C0;
+}
+
+#container2 {
+	width: 57%;
+	min-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	font-family: "Courier New", monospace;
+	color: white;
+	border: 5px solid #C0C0C0;
+	background-color: rgb(0, 129, 129);
+}
+
+#contador {
+	line-height: 59px;
+}
+
+.diolho {
+	background-color: rgba(179, 0, 0, 0.7);
 }
 
 .botoes {
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	display: flex;
 	justify-content: center;
 	background: none;
@@ -34,7 +70,7 @@ canvas {
 	margin-right: auto;
 	text-align: center;
 	align-items: center;
-	background-color: rgba(112, 128, 144, 0.5);
+	/*background-color: rgba(112, 128, 144, 0.5); rgb(0, 129, 129);*/
 	gap: 25px;
 	padding: 5px;
 }
@@ -44,10 +80,15 @@ canvas {
 	font-weight: bold;
 	border: none;
 	cursor: pointer;
+	font-family: "Courier New", monospace;
 }
 
 .botao:hover {
-	background-color: rgba(89, 69, 181, 0.5);
+	background-color: rgba(235, 235, 235, 0.637);
+}
+
+.tamanho {
+	font-size: 19px;
 }
 
 .paleta{
@@ -71,7 +112,7 @@ canvas {
 }
 
 #select {
-	background-color: rgba(89, 69, 181, 0.5);
+	background-color: rgba(235, 235, 235, 0.637);
 }
 
 /*RODAPÉ*/
@@ -92,7 +133,7 @@ footer ul {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background-color: rgba(112, 128, 144, 0.5);
+	background-color: #C0C0C0;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -107,7 +148,9 @@ footer li {
 
 footer li a {
 	text-align: center;
-	color: white;
+	color: black;
+	font-family: "Courier New", monospace;
+	font-weight: bold;
 	display: block;
 	width: 100%;
 	text-decoration: none;
@@ -115,7 +158,7 @@ footer li a {
 }
 
 footer li a:hover {
-	background-color: rgba(89, 69, 181, 0.5);
+	background-color: rgba(235, 235, 235, 0.637);;
 }
 
 footer img {
@@ -123,6 +166,6 @@ footer img {
 }
 
 .ufes {
-	width: 40%;
+	width: 50%;
 	height: auto;
 }

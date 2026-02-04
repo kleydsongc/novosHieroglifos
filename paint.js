@@ -3,14 +3,43 @@ let cor = "#000000";
 var ctx = canvas.getContext("2d");
 let offsetX = canvas.offsetLeft;
 let offsetY = canvas.offsetTop;
-let espessuraPincel = 5;
+let espessuraPincel = 10;
 
 const borracha = document.getElementsByClassName("borracha");
 const brush = document.getElementsByClassName("brush");
 
 const limpar = document.querySelector(".limpar");
 
+const container = document.getElementById("container");
+
 document.querySelector(".color-btn").value = cor;
+
+/*****INTERVALO DE TEMPO*****/
+const contaTempo = setInterval(marcaTempo, 1000);
+function marcaTempo() {
+	const tempo = document.createElement('img');
+	tempo.src = "assets/images/icons/ampulheta.png";
+	document.getElementById("contador").appendChild(tempo);
+}
+
+var intervalos = [4, 6, 8, 11];
+var interAle = 2;
+setTimeout(vigia, 1000*intervalos[interAle]);
+
+function vigia() {
+	if (container.className == "diolho") {
+		container.className = "";
+		document.getElementById("contador").innerHTML = "";
+	}
+	else {
+		container.classList.toggle('diolho');
+		document.getElementById("contador").innerHTML = "";
+	}
+	interAle = Math.floor(Math.random() * intervalos.length);
+
+	console.log(intervalos[interAle]);
+	setTimeout(vigia, 1000*intervalos[interAle]);
+}/*****FIM*****/
 
 /*****BACKGROUND COM A IMAGEM*****/
 /*var background = new Image();
@@ -41,8 +70,8 @@ function attCor() {
 function colorPick() {
 	cor = document.getElementById("color-picker").value;
 	corAtual();
-}
-/*****FIM*****/
+}/*****FIM*****/
+
 
 /*****ESPESSURA DO PINCEL*****/
 function espessura() {
@@ -60,8 +89,8 @@ function espessura() {
 			element.setAttribute("id", "select");
 		});
 	});
-}
-/*****FIM*****/
+}/*****FIM*****/
+
 
 /*****BORRACHA*****/
 //const apagar = () => (ctx.globalCompositeOperation = "destination-out");
@@ -87,12 +116,20 @@ function draw(e) {
 	ctx.beginPath(); // ponta-pé ao coaminho do desenho
 	ctx.lineWidth = espessuraPincel; // espessura do traço
 	ctx.lineCap = "round";
+	//ctx.globalAlpha = 0.7; //opacidade do traço, se necessário
 	ctx.strokeStyle = cor; // cor do traço
 	ctx.moveTo(pos.x, pos.y); // da posição do cursor
 	setPosition(e);
 	ctx.lineTo(pos.x, pos.y); // para a posição do cursor
 	ctx.closePath();
 	ctx.stroke(); // imprime o traço
+		
+	if (container.className == "diolho") {
+		if (!alert("Levanta a mão, devagar!")) {
+			var url = "src/endgame.html";
+			window.open(url, '_self');
+		}
+	}
 }
 /*****FIM*****/
 
@@ -101,6 +138,28 @@ limpar.addEventListener("click", () => {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	//ctx.drawImage(background, 0, 0);
 });
+/*****FIM*****/
+
+/*****MUDA FOTO*****/
+var raizCss = document.querySelector(':root');
+const murais = ['valerio.jpg)', 'valeed.jpg)', 'samarco.jpg)', 'samarco2.jpg)'];
+var contMural = 0;
+
+function mudarMural() {
+	if (contMural < 3) {
+		contMural++;
+	}
+	else {
+		contMural = 0;
+	}
+	raizCss.style.setProperty('--mural', 'url(assets/images/'+murais[contMural]);
+	if (contMural > 1) {
+		document.getElementById("localMural").innerHTML = "Samarco, Espírito Santo."
+	}
+	else {
+		document.getElementById("localMural").innerHTML = "Escritório da Vale, Rio de Janeiro."
+	}
+}
 /*****FIM*****/
 
 /*****DOWNLOAD*****/                            //download não funciona, browser suspeita do arquivo e não permite baixar a imagem.
